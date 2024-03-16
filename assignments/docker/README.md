@@ -12,3 +12,27 @@
 
 ```
 
+###  change content of a.txt and remote b.txt but not using docker cli 
+
+```
+[root@docker-server ~]# 
+[root@docker-server ~]# docker  exec -it  ashuc1 sh 
+/ # 
+/ # 
+/ # ls
+bin    dev    etc    home   lib    media  mnt    opt    proc   root   run    sbin   srv    sys    tmp    usr    var
+/ # cd /opt/
+/opt # ls
+/opt # mkdir hello 
+/opt # touch a.txt b.txt
+/opt # echo hello>a.txt 
+/opt # pwd
+/opt
+/opt # ls
+a.txt  b.txt  hello
+/opt # cat a.txt 
+hello
+/opt # 
+
+
+```
