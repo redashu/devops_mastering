@@ -50,3 +50,11 @@ hello
       <li> MAC -- use Docker Desktop / Rancher Desktop </li>
 
 </ol>
+
+### Limit Resource task 
+
+```
+1. create container with limited RAM amount of 100M  and cpu 20% of first core 
+2. after creation update the limit to 200M
+3. after creation update cpu to 30% of same core 
+```
