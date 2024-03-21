@@ -168,4 +168,17 @@ exit
 
 ```
 
+### Docker restart policy 
+
+<img src="res1.png">
+
+### implementing restart policy 
+
+```
+docker  run -itd --name ashuc4  --restart always  alpine
+```
+
+### application containerization 
+
+<img src="appc1.png">
 
