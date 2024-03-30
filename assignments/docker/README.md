@@ -58,3 +58,13 @@ hello
 2. after creation update the limit to 200M
 3. after creation update cpu to 30% of same core 
 ```
+
+## CUstom docker image with given instructions 
+
+<li> choose any base image to build docker image </li>
+<li> use hello.py as python code --take code from docker day5 directory   </li>
+<li> make sure python version must be 3.11  </li>
+<li> try to keep image size in the range of 50 to 70 MB  </li>
+<li> try to take base image based on debian , ubuntu , alpine , redhat  </li>
+<li> create container and check output  </li>
+
