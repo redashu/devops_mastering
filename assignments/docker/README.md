@@ -74,3 +74,7 @@ hello
 ```
 testing
 ```
+
+### Dockerfile ENV task 
+
+<img src="taskenv.png">
