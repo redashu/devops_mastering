@@ -11,4 +11,4 @@ RUN mvn install  \
 && ls target 
 FROM tomcat
 LABEL email="ashutoshh@linux.com"
-COPY --from=Builder /ashu-java/target/WebApp.war /usr/local/tomcat/webapps/
+COPY --from=Builder /mydir/target/WebApp.war /usr/local/tomcat/webapps/
