@@ -1,0 +1,13 @@
+version: "3.8"
+# compose file version 1.x , 2.x and now 3.x -- 
+services:
+  ashupythonapp: # this is docker build and docke run 
+    image: ashupython:v1 
+    build: .  # location of Dockerfile 
+    container_name: ashucc1122 
+  ashuwebapp:
+    image: ashuwebapp:v1.0 
+    build: # build need 2 arguments
+      context: . # location
+      dockerfile: web.dockerfile 
+    container_name: ashuwebc2 

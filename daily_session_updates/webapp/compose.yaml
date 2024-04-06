@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  ashuappnew:
+    image: ashunew:v1 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ashuweb009
+    environment:
+      app: dev 
+  
+# task compose 
+### all docker build you have done just call them by compose 
