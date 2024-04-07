@@ -1,0 +1,22 @@
+version: "3.8"
+# if you are using compsoe 2.x or later then it will create a custom docker bridge
+volumes:
+  ashuvol1:
+  ashuvol2: 
+networks:
+  ashubr1: 
+  ashubr2:
+services:
+  ashuc1:
+    image: alpine
+    container_name: dccc1
+    command: ["ping", "localhost"]
+    volumes:
+      - ashuvol1:/newdata
+  ashunew:
+    image: alpine
+    container_name: cc2
+    volumes:
+      - ashu
+    networks:
+      - ashubr1
