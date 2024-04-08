@@ -1,0 +1,16 @@
+version: "3.8"
+volumes: # creating volume 
+  ashuvolnew1: # name of volume 
+services:
+  mywebapp:
+    image: nginx
+    container_name: c111
+    environment:
+      - z=100
+    env_file: # if you are having .env file then you don't need to call
+      - ./mydata.env 
+    ports:
+      - 1244:80 
+    volumes:
+      - ashuvolnew1:/opt/mydata:rw
+      - ./html-sample-app:/usr/share/nginx/html/:ro 
