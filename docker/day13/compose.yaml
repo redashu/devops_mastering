@@ -1,0 +1,29 @@
+version: "3.8"
+volumes: # creating voluems 
+  ashudbvol1: # name of volume 
+networks: # creating netwokrs
+  ashubrx1: #   
+services:
+  ashudb: 
+    image: mysql  # pulling image from dockerhub 
+    container_name: ashudbc1 
+    restart: always 
+    volumes:
+      - ashudbvol1:/var/lib/mysql/
+    networks:
+      - ashubrx1
+    environment:
+      - MYSQL_ROOT_PASSWORD=Redhat@12345
+      - MYSQL_DATABASE=hellodb 
+      - MYSLQ_USER=ashu
+      - MYSLQ_PASSWORD=Ok@12345
+  ashuwebapp:
+    image: adminer # php based webapp
+    container_name: ashuwebc1 
+    #network_mode: host 
+    networks:
+      - ashubrx1
+    depends_on:
+      - ashudb
+    ports: # port forwarding 
+      - 8080:8080
