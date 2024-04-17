@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: Pod # we want to create pod 
+metadata:
+  name: ashupod1  # name of Kind 
+spec: 
+  containers:
+  - image: nginx 
+    name: ashuc1 
+  - name: ashuc2
+    image: alpine   # sh 
+    tty: true #   its like docker run -it for images having interprator/compipler
+
