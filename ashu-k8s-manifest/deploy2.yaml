@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: wehfskfjsfg
+  name: wehfskfjsfg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wehfskfjsfg
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: wehfskfjsfg
+    spec:
+      containers:
+      - image: httpd
+        name: httpd
+        ports:
+        - containerPort: 80
+        resources: {}
+status: {}
