@@ -141,3 +141,33 @@ eksctl  utils  write-kubeconfig   --cluster=devops-cluster   --kubeconfig=~/.kub
 kubectl get nodes
 ```
 
+### switching b/w cluster
+
+```
+kubectl  config get-contexts 
+CURRENT   NAME                                                      CLUSTER                                                   AUTHINFO                                                  NAMESPACE
+          arn:aws:eks:us-east-1:751136288263:cluster/roche-eks-cp   arn:aws:eks:us-east-1:751136288263:cluster/roche-eks-cp   arn:aws:eks:us-east-1:751136288263:cluster/roche-eks-cp   ashu-apps
+          iam-root-account@jpmc-cluster.us-east-1.eksctl.io         jpmc-cluster.us-east-1.eksctl.io                          iam-root-account@jpmc-cluster.us-east-1.eksctl.io         
+          rancher-desktop                                           rancher-desktop                                           rancher-desktop                                           
+*         videos@jpmc-cluster.ap-south-1.eksctl.io                  jpmc-cluster.ap-south-1.eksctl.io                         videos@jpmc-cluster.ap-south-1.eksctl.io                  
+          videos@jpmc-cluster.us-east-1.eksctl.io                   jpmc-cluster.us-east-1.eksctl.io                          videos@jpmc-cluster.us-east-1.eksctl.io                   
+➜  EKS 
+➜  EKS 
+➜  EKS 
+➜  EKS kubectl  config use-context  rancher-desktop  
+Switched to context "rancher-desktop".
+➜  EKS kubectl  get nodes
+NAME                   STATUS   ROLES                  AGE   VERSION
+lima-rancher-desktop   Ready    control-plane,master   10d   v1.29.3+k3s1
+➜  EKS 
+➜  EKS kubectl  config use-context  videos@jpmc-cluster.ap-south-1.eksctl.io 
+Switched to context "videos@jpmc-cluster.ap-south-1.eksctl.io".
+➜  EKS kubectl  get nodes                                                    
+NAME                                           STATUS   ROLES    AGE   VERSION
+ip-192-168-22-5.ap-south-1.compute.internal    Ready    <none>   14h   v1.29.0-eks-5e0fdde
+ip-192-168-45-35.ap-south-1.compute.internal   Ready    <none>   14h   v1.29.0-eks-5e0fdde
+➜  EKS 
+
+
+```
+
