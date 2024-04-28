@@ -7,7 +7,7 @@ metadata:
   name: ashupod1
 spec:
   containers:
-  - command: ["sh","-c","sleep","5000"] 
+  - command: ["bash","-c","sleep","5000"] 
     image: alpine
     name: ashupod1
     resources: {}
