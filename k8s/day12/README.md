@@ -2,7 +2,7 @@
 
 ## how to setup k8s in ec2 vm 
 
-[watch_to_click]('https://www.youtube.com/watch?v=TTzbQdu30YA')
+[watch_to_click](https://www.youtube.com/watch?v=TTzbQdu30YA)
 
 
 ### Revision 
