@@ -25,3 +25,39 @@
   
 ```
 
+### task -3 -- Converting compose to k8s manifest
+
+```
+wordpress:
+    image: wordpress
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: exampleuser
+      WORDPRESS_DB_PASSWORD: examplepass
+      WORDPRESS_DB_NAME: exampledb
+    volumes:
+      - wordpress:/var/www/html
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: exampledb
+      MYSQL_USER: exampleuser
+      MYSQL_PASSWORD: examplepass
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+```
+
+## Task 4 -- 
+- Deploy adminer with mysql | postgresSQL | mongo | mssql using compose
+
+### task 5 -- 
+- Deploy - adminer + mysql in Rancher Desktop (k8s manifest)
+
+### task 6 -- 
+
+- adminer +  mysql + mongo in Rancher Desktop  (k8s manifest)
+
