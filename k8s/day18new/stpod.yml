@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: ashupod
+  name: ashupod
+spec:
+  volumes: # creating volume id 
+  - name: ashuvol1 
+    hostPath: # to take store from worker node where pod is going to run
+      path: /tmp/ashu-data/ashu-vol
+      type: DirectoryOrCreate # if path does not exist then create it 
+  containers:
+  - image: alpine
+    name: ashupod
+    command: ['sh','-c','while true;do date >>/mnt/data/time.txt;sleep 10;done']
+    volumeMounts: # mounting volume to container
+    - name: ashuvol1 # name of volume 
+      mountPath: /mnt/data/  # mounting path inside contaienr 
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}

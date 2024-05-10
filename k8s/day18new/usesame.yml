@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: ashupod2
+  name: ashupod2
+spec:
+  nodeName: ip-10-0-231-96.ec2.internal
+  volumes: # creating volume id 
+  - name: ashuvol12 
+    hostPath: # to take store from worker node where pod is going to run
+      path: /tmp/ashu-data/ashu-vol
+      type: Directory # if path does not exist then create it 
+  containers:
+  - image: busybox
+    name: ashupod
+    command: ['sh','-c','sleep 10000']
+    volumeMounts: # mounting volume to container
+    - name: ashuvol12 # name of volume 
+      mountPath: /mnt/ashu/  # mounting path inside contaienr 
+      readOnly: true 
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
