@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ashu-alpine
+  name: ashu-alpine
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ashu-alpine
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ashu-alpine
+    spec:
+      volumes:
+      - name: ashuvol2 
+        configMap:
+          name: ashu-cm # name of CM 
+      containers:
+      - image: alpine
+        name: alpine
+        command: ["/bin/sh","/mnt/hello1/hello.sh"]
+        volumeMounts:
+        - name: ashuvol2
+          mountPath: /mnt/hello1/ 
+        resources: {}
+status: {}

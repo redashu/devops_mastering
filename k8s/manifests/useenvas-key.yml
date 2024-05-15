@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  MYSQL_PASSWORD: UmVkaGF0YXNodUAxMjM=
+  MYSQL_USER: YXNodQ==
+kind: Secret
+metadata:
+  creationTimestamp: null
+  name: ashu-db-general-cred

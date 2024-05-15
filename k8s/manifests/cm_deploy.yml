@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mohit-db
+  name: mohit-db
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mohit-db
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mohit-db
+    spec:
+      containers:
+      - image: mysql
+        name: mysql
+        ports:
+        - containerPort: 3306
+        envFrom: # when variable and values define in CM|SEcret
+        - secretRef: 
+            name: ashu-db-general-cred 
+        env: # when you define env variable but want to read vlues from CM|secret
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: ashu-root-cred # name of secret 
+              key: mydbroot_pass # key of secret 
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              name: ashu-db-name # name of cm 
+              key: mydb_name # key 
+        resources: {}
+status: {}
