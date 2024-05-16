@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ashu-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual 
+  capacity:
+    storage: 1Gi  # 1GB == 1000MB -- 1GiB == 1024 MiB
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data"
+    type: DirectoryOrCreate

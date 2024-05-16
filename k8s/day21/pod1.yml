@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: webpod
+  name: webpod
+spec:
+  volumes:
+  - name: ashuvol1 
+    persistentVolumeClaim:
+      claimName: ashu-pvc-1
+  containers:
+  - command:
+    - sleep
+    - "10000"
+    image: alpine
+    name: webpod
+    volumeMounts:
+    - name: ashuvol1
+      mountPath: /mnt/oknew/
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
