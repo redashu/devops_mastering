@@ -112,3 +112,46 @@ kubernetes   ClusterIP   10.43.0.1    <none>        443/TCP   41m
  humanfirmware@darwin  ~/Desktop  
 
 ```
+
+## Addressing storage workflow in k8s
+
+<img src="st1.png">
+
+### dynamic provision 
+
+<img src="st2.png">
+
+## creating storage class to create dynamic storage
+
+<img src="st3.png">
+
+### checking storage 
+
+```
+humanfirmware@darwin  ~/Desktop  kubectl  get  storageclass 
+NAME                    PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+azurefile               file.csi.azure.com   Delete          Immediate              true                   70m
+azurefile-csi           file.csi.azure.com   Delete          Immediate              true                   70m
+azurefile-csi-premium   file.csi.azure.com   Delete          Immediate              true                   70m
+azurefile-premium       file.csi.azure.com   Delete          Immediate              true                   70m
+default (default)       disk.csi.azure.com   Delete          WaitForFirstConsumer   true                   70m
+managed                 disk.csi.azure.com   Delete          WaitForFirstConsumer   true                   70m
+managed-csi             disk.csi.azure.com   Delete          WaitForFirstConsumer   true                   70m
+managed-csi-premium     disk.csi.azure.com   Delete          WaitForFirstConsumer   true                   70m
+managed-premium         disk.csi.azure.com   Delete          WaitForFirstConsumer   true                   70m
+ humanfirmware@darwin  ~/Desktop  
+ humanfirmware@darwin  ~/Desktop  kubectl  config get-contexts
+kCURRENT   NAME              CLUSTER           AUTHINFO                                     NAMESPACE
+*         ashu-k8s          ashu-k8s          clusterUser_ashu-manual-eurogroup_ashu-k8s   
+          rancher-desktop   rancher-desktop   rancher-desktop                              
+ humanfirmware@darwin  ~/Desktop  kubectl config use-context rancher-desktop
+Switched to context "rancher-desktop".
+ humanfirmware@darwin  ~/Desktop  
+ humanfirmware@darwin  ~/Desktop  kubectl  get  sc
+NAME                   PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+local-path (default)   rancher.io/local-path   Delete          WaitForFirstConsumer   false                  38d
+ humanfirmware@darwin  ~/Desktop  
+
+
+```
+
