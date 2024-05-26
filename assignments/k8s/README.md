@@ -61,3 +61,10 @@ wordpress:
 
 - adminer +  mysql + mongo in Rancher Desktop  (k8s manifest)
 
+### task 7 
+- use nginx helm package to deploy application using helm only with following conditions
+- make sure you are using your own docker hub image having some sample webapp
+- also make sure the service type must be clusterIP while doing helm install
+- consider you are going to have 2 pods of your image
+- try to access application by exposing kubectl expose 
+- udpate your docker image to nginx:1.23 after all above task using helm only
