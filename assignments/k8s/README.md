@@ -68,3 +68,10 @@ wordpress:
 - consider you are going to have 2 pods of your image
 - try to access application by exposing kubectl expose 
 - udpate your docker image to nginx:1.23 after all above task using helm only
+
+## task 8 
+
+- Create helm chart for two tier webapp
+- create helm chart for mysql db 
+- create helm chart for adminer php webapp
+- deploy and test 
