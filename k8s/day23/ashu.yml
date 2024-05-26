@@ -1,0 +1,16 @@
+# internal LB info 
+service:
+  type: ClusterIP
+  ports:
+    http: 80
+  targetPort:
+    http: 80 
+# image info 
+image:
+  registry: docker.io
+  repository: dockerashu/ashuweb
+  tag: version2bmo
+
+# changing number of pod
+replicaCount: 2 
+
