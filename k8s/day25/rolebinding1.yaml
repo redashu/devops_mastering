@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  creationTimestamp: null
+  name: podpermsbind1
+  namespace: mohit-ns
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: mohit-role1
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: mohit-ns
