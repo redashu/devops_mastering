@@ -17,6 +17,10 @@
 
 <img src="pipeline2.png">
 
+### webapp code repo link
+
+[click_here](https://github.com/redashu/devops_oracle_webapp.git)
+
 ## creating github action pipeline workflow 
 
 ```
@@ -33,7 +37,7 @@ python-ci.yml
 
 ```
 
-### by default github actions offer 3 runners {vm by azure}
+### by default github actions offer 3 runners {vm by azure} -- mean 3 os 
 
 <img src="runner.png">
 
