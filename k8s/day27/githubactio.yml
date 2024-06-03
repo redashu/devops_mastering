@@ -1,0 +1,48 @@
+# name of my pipeline 
+name: ashu python cicd pipeline
+on: 
+    push:
+        branches: ["master"]
+# jobs 
+jobs: 
+    ashu-build-test:
+        runs-on: ubuntu-latest
+        steps: 
+        # name is common keyword to definine steps 
+        # under name we can use alot of keywords 
+        #  example run -- we can supply commands as per runner server
+        #          uses -- we can use github actions / templates
+            - name: checking docker version 
+              run: |
+                echo "checking docker version"
+                docker version 
+                docker-compose version 
+            - name: cloning my code using github action 
+              uses: actions/checkout@v4 
+               
+            # above actions is gonna clone data from current git rpeo  in runner machine
+            - name: build image and create container 
+              run: | 
+                ls -a 
+                docker-compose up -d 
+                sleep 2 
+                docker-compose ps 
+
+            - name: testing webapp by access it 
+              run: |
+                echo "we can use any tool to acccess web page like postman, curl , http"
+                curl -f http://localhost:5000/health
+                
+            - name: login to docker hub 
+              uses: docker/login-action@v3
+              with:
+                username: ${{ secrets.DOCKER_USERNAME }}
+                password: ${{ secrets.DOCKER_PASSWORD }}
+
+            - name: rebuild image and push it 
+              uses: docker/build-push-action@v5
+              with:
+                context: . # location of dockerfile 
+                push: true
+                tags: ${{ secrets.DOCKER_USERNAME }}/ashutestapp:v1
+

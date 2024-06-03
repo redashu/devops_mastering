@@ -75,3 +75,10 @@ wordpress:
 - create helm chart for mysql db 
 - create helm chart for adminer php webapp
 - deploy and test 
+
+### task 9 
+
+- create github public repo to only keep webapp code 
+- create another github public repo to keep pipeline file and docker related data
+- now devops git repo you have to trigger manually whenever developer is asking 
+- and perform build , test and push 
